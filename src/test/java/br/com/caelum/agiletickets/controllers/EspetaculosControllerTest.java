@@ -76,7 +76,7 @@ public class EspetaculosControllerTest {
 	public void deveRetornarNotFoundSeASessaoNaoExiste() throws Exception {
 		when(agenda.sessao(1234l)).thenReturn(null);
 
-		controller.sessao(1234l);
+		controller.pesquisaSessao(1234l);
 
 		verify(result).notFound();
 	}

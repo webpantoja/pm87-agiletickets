@@ -15,7 +15,10 @@ import br.com.caelum.agiletickets.models.TipoDeEspetaculo;
 
 public class PreencheBanco {
 
-	// ALUNO: Não apague essa classe
+	/**
+	 * 
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory("default");
