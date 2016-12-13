@@ -8,7 +8,7 @@ import br.com.caelum.agiletickets.models.TipoDeEspetaculo;
 public class CalculadoraDePrecos {
 
 	/**
-	 * quando estiver acabando os ingressos
+	 * Calcula preço dos ingressos por espetáculo
 	 * @param sessao
 	 * @param quantidade
 	 * @return
@@ -43,7 +43,6 @@ public class CalculadoraDePrecos {
 				preco = preco.add(sessao.getPreco().multiply(BigDecimal.valueOf(0.10)));
 			}
 		}  else {
-			//nao aplica aumento para teatro (quem vai é pobretão)
 			preco = sessao.getPreco();
 		} 
 

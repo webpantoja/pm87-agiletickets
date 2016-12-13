@@ -119,7 +119,7 @@ public class EspetaculosController {
 	 * @param id
 	 */
 	@Get("/sessao/{id}")
-	public void pesquisaSessao(Long id) {
+	public void sessao(Long id) {
 		Sessao sessao = agenda.sessao(id);
 		if (sessao == null) {
 			result.notFound();
@@ -150,7 +150,7 @@ public class EspetaculosController {
 			validator.add(new SimpleMessage("", "Não existem ingressos disponíveis"));
 		}
 
-		validator.onErrorRedirectTo(this).pesquisaSessao(sessao.getId());
+		validator.onErrorRedirectTo(this).sessao(sessao.getId());
 
 		BigDecimal precoTotal = CalculadoraDePrecos.calcula(sessao, quantidade);
 
