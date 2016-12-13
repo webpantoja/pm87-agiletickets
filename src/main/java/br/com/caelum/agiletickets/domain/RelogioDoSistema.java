@@ -2,10 +2,9 @@ package br.com.caelum.agiletickets.domain;
 
 import org.joda.time.DateTime;
 
-public class RelogioDoSistema implements Relogio {
+public final class RelogioDoSistema  {
 
-	@Override
-	public DateTime agora() {
+	public static DateTime agora() {
 		return new DateTime();
 	}
 

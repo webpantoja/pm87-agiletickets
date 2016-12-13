@@ -7,11 +7,16 @@ import br.com.caelum.agiletickets.models.TipoDeEspetaculo;
 
 public class CalculadoraDePrecos {
 
+	/**
+	 * quando estiver acabando os ingressos
+	 * @param sessao
+	 * @param quantidade
+	 * @return
+	 */
 	public static BigDecimal calcula(Sessao sessao, Integer quantidade) {
 		BigDecimal preco;
 		
 		if(sessao.getEspetaculo().getTipo().equals(TipoDeEspetaculo.CINEMA) || sessao.getEspetaculo().getTipo().equals(TipoDeEspetaculo.SHOW)) {
-			//quando estiver acabando os ingressos... 
 			if((sessao.getTotalIngressos() - sessao.getIngressosReservados()) / sessao.getTotalIngressos().doubleValue() <= 0.05) { 
 				preco = sessao.getPreco().add(sessao.getPreco().multiply(BigDecimal.valueOf(0.10)));
 			} else {
