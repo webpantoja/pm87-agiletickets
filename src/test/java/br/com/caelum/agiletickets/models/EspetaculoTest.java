@@ -133,7 +133,7 @@ public class EspetaculoTest {
 		
 		List<Sessao> sessoes = pablo.criaSessoes(inicio, fim, horario, periodicidade);
 		Assert.assertNotNull("lista de excecoes não pode ser nula", sessoes);
-		Assert.assertEquals(1, sessoes.size());
+		Assert.assertEquals(2, sessoes.size());
 		
 		Sessao sessao = sessoes.get(0);
 		Assert.assertEquals("30/11/16", sessoes.get(0).getDia());
