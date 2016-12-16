@@ -1,5 +1,9 @@
 package br.com.caelum.agiletickets.models;
 
+import java.math.BigDecimal;
+
+import javax.validation.constraints.AssertTrue;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -36,6 +40,23 @@ public class SessaoTest {
 		sessao.setTotalIngressos(2);
 		
 		Assert.assertTrue(sessao.podeReservar(2));
+	}
+	
+	@Test
+	public void deveAcrescentarValorQuandoAtingirNumeroMaximoDeReserva(){
+		Espetaculo espetaculo = new Espetaculo();
+		espetaculo.setNome("Show");
+		espetaculo.setTipo(TipoDeEspetaculo.CINEMA);
+		
+		Sessao sessao = new Sessao();
+		sessao.setTotalIngressos(100);
+		sessao.reserva(94);
+		sessao.setPreco(new BigDecimal(50));
+		sessao.setEspetaculo(espetaculo);
+		BigDecimal valor = sessao.getEspetaculo().getTipo().calcularPreco(sessao, 1);
+		
+		Assert.assertEquals(valor, new BigDecimal(50));
+		
 	}
 	
 }
